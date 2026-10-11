@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.env
+venv/
+gecici_medya*
+ffmpeg.exe
+ffprobe.exe
+api_test.py
