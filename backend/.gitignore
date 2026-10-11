@@ -6,3 +6,8 @@ gecici_medya*
 ffmpeg.exe
 ffprobe.exe
 api_test.py
+
+*.mp4
+*.mp3
+/debug_log.txt
+/python
