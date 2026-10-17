@@ -381,6 +381,7 @@ class _AnaEkranState extends State<AnaEkran> {
   int _mesajIndex = 0;
   Timer? _zamanlayici;
   final Set<int> _isaretli = {};
+  bool _sifreGizli = true;
 
   static const List<String> _yuklemeMesajlari = [
     'Video indiriliyor...',
@@ -602,7 +603,7 @@ class _AnaEkranState extends State<AnaEkran> {
   }) {
     return TextField(
       controller: controller,
-      obscureText: gizli,
+      obscureText: gizli && _sifreGizli,
       onSubmitted: gizli
           ? (_) {
               if (!_yukleniyor) tarifiGetir();
@@ -652,6 +653,15 @@ class _AnaEkranState extends State<AnaEkran> {
             ikon: Icons.lock_outline_rounded,
             cs: cs,
             gizli: true,
+            sonEk: IconButton(
+              tooltip: _sifreGizli ? 'Şifreyi göster' : 'Şifreyi gizle',
+              icon: Icon(
+                _sifreGizli
+                    ? Icons.visibility_rounded
+                    : Icons.visibility_off_rounded,
+              ),
+              onPressed: () => setState(() => _sifreGizli = !_sifreGizli),
+            ),
           ),
           const SizedBox(height: 18),
           _anaButon(),
